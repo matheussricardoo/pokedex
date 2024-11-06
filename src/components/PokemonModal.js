@@ -4,12 +4,35 @@ import { useState, useEffect } from 'react';
 import CompareMode from '@/components/CompareMode';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-export default function PokemonModal({ pokemon, onClose, setSelectedPokemon }) {
+const translations = {
+  en: {
+    shinyVersion: "Shiny Version",
+    normalVersion: "Normal Version",
+    evolutions: "Evolutions",
+    level: "Level",
+    info: "Info",
+    compare: "Compare",
+    baseStats: "Base Stats",
+    close: "Close"
+  },
+  pt: {
+    shinyVersion: "Versão Shiny",
+    normalVersion: "Versão Normal",
+    evolutions: "Evoluções",
+    level: "Nível",
+    info: "Info",
+    compare: "Comparar",
+    baseStats: "Status Base",
+    close: "Fechar"
+  }
+};
+
+export default function PokemonModal({ pokemon, onClose, onPokemonChange }) {
   const [currentSprite, setCurrentSprite] = useState('default');
   const [evolutionChain, setEvolutionChain] = useState(null);
   const [loading, setLoading] = useState(true);
   const [currentView, setCurrentView] = useState('info');
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     async function fetchEvolutionChain() {
@@ -60,7 +83,7 @@ export default function PokemonModal({ pokemon, onClose, setSelectedPokemon }) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${evolutionPokemon.name}`)
       .then(res => res.json())
       .then(data => {
-        setSelectedPokemon(data); 
+        onPokemonChange(data);
       });
   };
 
@@ -124,7 +147,7 @@ export default function PokemonModal({ pokemon, onClose, setSelectedPokemon }) {
                                ? 'bg-[#306230] text-[#98cb98]' 
                                : 'bg-[#98cb98] text-[#0f380f] hover:bg-[#306230] hover:text-[#98cb98]'}`}
                 >
-                  {currentSprite === 'shiny' ? 'Versão Normal' : 'Versão Shiny'}
+                  {currentSprite === 'shiny' ? t('normalVersion') : t('shinyVersion')}
                 </button>
               </div>
 
@@ -137,7 +160,7 @@ export default function PokemonModal({ pokemon, onClose, setSelectedPokemon }) {
                 </div>
 
                 <div className="bg-[#98cb98] border-2 border-[#0f380f] p-4">
-                  <h3 className="text-[#0f380f] uppercase mb-4">Status Base</h3>
+                  <h3 className="text-[#0f380f] uppercase mb-4">{t('baseStats')}</h3>
                   {pokemon.stats.map((stat) => (
                     <div key={stat.stat.name} className="mb-3">
                       <div className="flex justify-between text-sm text-[#0f380f] mb-1">
@@ -158,7 +181,7 @@ export default function PokemonModal({ pokemon, onClose, setSelectedPokemon }) {
               {/* Cadeia evolutiva */}
               {!loading && evolutionChain && (
                 <div className="md:col-span-2 bg-[#98cb98] border-2 border-[#0f380f] p-4">
-                  <h3 className="text-[#0f380f] uppercase mb-6">Evoluções</h3>
+                  <h3 className="text-[#0f380f] uppercase mb-6">{t('evolutions')}</h3>
                   <div className="flex items-center justify-center gap-8">
                     {evolutionChain.map((evo, index) => (
                       <div key={evo.id} className="flex items-center">
@@ -181,7 +204,9 @@ export default function PokemonModal({ pokemon, onClose, setSelectedPokemon }) {
                               {evo.name}
                             </p>
                             {evo.min_level && (
-                              <p className="text-xs text-[#0f380f]/70">Nível {evo.min_level}</p>
+                              <p className="text-xs text-[#0f380f]/70">
+                                {t('level')} {evo.min_level}
+                              </p>
                             )}
                           </div>
                         </div>
@@ -214,6 +239,14 @@ export default function PokemonModal({ pokemon, onClose, setSelectedPokemon }) {
             <CompareMode pokemon1={pokemon} />
           )}
         </div>
+
+        <button
+          onClick={onClose}
+          className="w-full mt-6 py-3 bg-[#306230] text-[#98cb98] border-2 border-[#0f380f]
+                   hover:bg-[#98cb98] hover:text-[#0f380f] transition-colors uppercase"
+        >
+          {t('close')}
+        </button>
       </div>
     </div>
   );

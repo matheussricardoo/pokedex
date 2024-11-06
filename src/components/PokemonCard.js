@@ -2,26 +2,21 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-export default function PokemonCard({ pokemon, onClick, index }) {
+export default function PokemonCard({ pokemon, onClick, getTypeTranslation }) {
   const [isLoading, setIsLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
-
-  const getTypeColor = (type) => {
-    return `bg-pokemon-${type}`;
-  };
 
   return (
     <div
       onClick={() => onClick(pokemon)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`group bg-[#9bac7a] p-2 sm:p-3 cursor-pointer
+      className="group bg-[#9bac7a] p-3 cursor-pointer
                  transform transition-all duration-300 
-                 hover:translate-y-[-2px] border-2 border-[#0f380f] animate-fade-in-up`}
+                 hover:translate-y-[-2px] border-2 border-[#0f380f]"
       style={{
         transform: isHovered ? 'translateY(-5px)' : 'none',
-        boxShadow: isHovered ? '0px 5px 0px #0f380f' : '0px 3px 0px #0f380f',
-        animationDelay: `${index * 50}ms`,
+        boxShadow: isHovered ? '0px 5px 0px #0f380f' : '0px 3px 0px #0f380f'
       }}
     >
       <div className="aspect-square relative mb-2 sm:mb-4 bg-[#306230] overflow-hidden border-2 border-[#0f380f]">
@@ -42,20 +37,19 @@ export default function PokemonCard({ pokemon, onClick, index }) {
       </div>
       
       <div className="text-[#0f380f]">
-        <div className="flex justify-between items-center mb-1 sm:mb-2">
-          <p className="text-[10px] sm:text-xs">No.{String(pokemon.id).padStart(3, '0')}</p>
+        <div className="flex justify-between items-center mb-2">
+          <p className="text-xs">No.{String(pokemon.id).padStart(3, '0')}</p>
         </div>
-        <h2 className="text-xs sm:text-sm font-bold uppercase mb-1 sm:mb-2 truncate">{pokemon.name}</h2>
-        <div className="flex flex-wrap gap-1 sm:gap-2">
+        <h2 className="text-sm font-bold uppercase mb-2 truncate">{pokemon.name}</h2>
+        <div className="flex flex-wrap gap-2">
           {pokemon.types.map((type) => (
             <span
               key={type.type.name}
-              className={`px-1.5 sm:px-2 py-0.5 text-[8px] sm:text-[10px] text-white uppercase 
-                         ${getTypeColor(type.type.name)}
+              className={`px-2 py-0.5 text-[10px] text-white uppercase bg-pokemon-${type.type.name}
                          border border-[#0f380f] transition-all duration-300
                          hover:brightness-110`}
             >
-              {type.type.name}
+              {getTypeTranslation(type.type.name)}
             </span>
           ))}
         </div>

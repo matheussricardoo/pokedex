@@ -16,10 +16,10 @@ export default function Pokedex() {
   const [viewMode, setViewMode] = useState('grid');
   const [generation, setGeneration] = useState(1);
   const [currentView, setCurrentView] = useState('pokedex');
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const types = [
-    'all', 'grass', 'fire', 'water', 'bug', 'normal', 'poison', 
+    'grass', 'fire', 'water', 'bug', 'normal', 'poison', 
     'electric', 'ground', 'fairy', 'fighting', 'psychic', 'rock', 
     'ghost', 'ice', 'dragon', 'dark', 'steel', 'flying'
   ];
@@ -68,6 +68,53 @@ export default function Pokedex() {
                        poke.types.some(type => type.type.name === selectedType);
     return matchesSearch && matchesType;
   });
+
+  const getTypeTranslation = (typeName) => {
+    const translations = {
+      pt: {
+        normal: "normal",
+        fire: "fogo",
+        water: "água",
+        electric: "elétrico",
+        grass: "planta",
+        ice: "gelo",
+        fighting: "lutador",
+        poison: "veneno",
+        ground: "terra",
+        flying: "voador",
+        psychic: "psíquico",
+        bug: "inseto",
+        rock: "pedra",
+        ghost: "fantasma",
+        dragon: "dragão",
+        dark: "sombrio",
+        steel: "aço",
+        fairy: "fada"
+      },
+      en: {
+        normal: "normal",
+        fire: "fire",
+        water: "water",
+        electric: "electric",
+        grass: "grass",
+        ice: "ice",
+        fighting: "fighting",
+        poison: "poison",
+        ground: "ground",
+        flying: "flying",
+        psychic: "psychic",
+        bug: "bug",
+        rock: "rock",
+        ghost: "ghost",
+        dragon: "dragon",
+        dark: "dark",
+        steel: "steel",
+        fairy: "fairy"
+      }
+    };
+
+    return translations[language][typeName] || typeName;
+  };
 
   if (loading) {
     return (
@@ -169,10 +216,10 @@ export default function Pokedex() {
                     className="px-2 sm:px-4 py-2 bg-[#98cb98] border-2 border-[#0f380f] text-[#0f380f]
                              focus:outline-none text-xs sm:text-sm uppercase flex-1 sm:flex-none"
                   >
-                    <option value="">{t('types')}</option>
+                    <option value="">{t('allTypes')}</option>
                     {types.map((type) => (
                       <option key={type} value={type} className="uppercase">
-                        {type}
+                        {getTypeTranslation(type)}
                       </option>
                     ))}
                   </select>
@@ -207,12 +254,12 @@ export default function Pokedex() {
                 : 'flex flex-col gap-2 sm:gap-4'
               }
             `}>
-              {filteredPokemon.map((poke, index) => (
+              {filteredPokemon.map((poke) => (
                 <PokemonCard
                   key={poke.id}
                   pokemon={poke}
                   onClick={setSelectedPokemon}
-                  index={index}
+                  getTypeTranslation={getTypeTranslation}
                 />
               ))}
             </div>
@@ -227,7 +274,7 @@ export default function Pokedex() {
         <PokemonModal
           pokemon={selectedPokemon}
           onClose={() => setSelectedPokemon(null)}
-          setSelectedPokemon={setSelectedPokemon}
+          onPokemonChange={setSelectedPokemon}
         />
       )}
     </div>
