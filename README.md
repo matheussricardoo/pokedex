@@ -44,45 +44,5 @@ eslint-config-next: 14.0.0
 
 
 ### 🚀 Getting Started | Começando
-Clone the repository | Clone o repositório
-git clone https://github.com/seu-usuario/pokedex.git
-Install dependencies | Instale as dependências
-npm install
-Start development server | Inicie o servidor de desenvolvimento
-
-
-### 📁 Project Structure | Estrutura do Projeto
-
-<div align="center">
-
-| Directory | Purpose | Propósito |
-|:---------:|:--------|:----------|
-| `/src/app/components` | UI Components (Cards, Modal, Quiz) | Componentes UI (Cards, Modal, Quiz) |
-| `/src/app/contexts` | React context providers | Provedores de contexto React |
-| `/src/app/fonts` | Local fonts | Fontes locais |
-| `/src/app/i18n` | Language files and translations | Arquivos de idioma e traduções |
-| `/src/components/features` | Feature components | Componentes de funcionalidades |
-| `/public` | Static assets and icons | Recursos estáticos e ícones |
-
-</div>
-
-### 👤 Author | Autor
-
-<div align="center">
-  <a href="https://github.com/seu-usuario" target="_blank">
-    <img src="https://skillicons.dev/icons?i=github" alt="GitHub"/>
-  </a>
-  <a href="https://www.linkedin.com/in/seu-usuario/" target="_blank">
-    <img src="https://skillicons.dev/icons?i=linkedin" alt="LinkedIn"/>
-  </a>
-</div>
-
-### 📄 License | Licença
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE](LICENSE) para obter detalhes.
-
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:306230,100:98cb98&height=120&section=footer"/>
 
 </div>
