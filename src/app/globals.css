@@ -14,8 +14,26 @@
   }
 }
 
+/* Estilização da scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #98cb98;
+  border: 2px solid #0f380f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #306230;
+  border: 2px solid #0f380f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0f380f;
+}
+
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply antialiased;
+  font-family: system-ui, -apple-system, sans-serif;
 }
