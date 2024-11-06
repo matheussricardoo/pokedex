@@ -180,9 +180,9 @@ export default function PokemonModal({ pokemon, onClose, onPokemonChange }) {
 
               {/* Cadeia evolutiva */}
               {!loading && evolutionChain && (
-                <div className="md:col-span-2 bg-[#98cb98] border-2 border-[#0f380f] p-4">
+                <div className="md:col-span-2 bg-[#98cb98] border-2 border-[#0f380f] p-4 overflow-x-auto">
                   <h3 className="text-[#0f380f] uppercase mb-6">{t('evolutions')}</h3>
-                  <div className="flex items-center justify-center gap-8">
+                  <div className="flex items-center justify-start min-w-max px-4">
                     {evolutionChain.map((evo, index) => (
                       <div key={evo.id} className="flex items-center">
                         <div 
@@ -190,8 +190,8 @@ export default function PokemonModal({ pokemon, onClose, onPokemonChange }) {
                                      ${index === 0 ? '-translate-y-2' : ''}`}
                           onClick={() => handleEvolutionClick(evo)}
                         >
-                          <div className="w-24 h-24 relative bg-[#306230] border-2 border-[#0f380f] p-2
-                                        hover:bg-[#3a7a3a] transition-colors">
+                          <div className="w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 relative bg-[#306230] 
+                                        border-2 border-[#0f380f] p-2 hover:bg-[#3a7a3a] transition-colors">
                             <Image
                               src={evo.image}
                               alt={evo.name}
@@ -200,7 +200,7 @@ export default function PokemonModal({ pokemon, onClose, onPokemonChange }) {
                             />
                           </div>
                           <div className="mt-2 text-center">
-                            <p className="text-sm text-[#0f380f] uppercase">
+                            <p className="text-xs sm:text-sm text-[#0f380f] uppercase">
                               {evo.name}
                             </p>
                             {evo.min_level && (
@@ -211,9 +211,9 @@ export default function PokemonModal({ pokemon, onClose, onPokemonChange }) {
                           </div>
                         </div>
                         {index < evolutionChain.length - 1 && (
-                          <div className="flex items-center mx-4">
+                          <div className="flex items-center mx-2 sm:mx-4">
                             <svg 
-                              className="w-6 h-6 text-[#0f380f]" 
+                              className="w-4 h-4 sm:w-6 sm:h-6 text-[#0f380f]" 
                               fill="none" 
                               stroke="currentColor" 
                               viewBox="0 0 24 24"

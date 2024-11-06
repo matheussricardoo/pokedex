@@ -44,14 +44,14 @@ export default function Home() {
       </div>
 
       <main className="absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-8">
-        {/* Pokébola animada */}
-        <div className="relative w-40 h-40 sm:w-64 sm:h-64 mb-6 sm:mb-8 group">
+        {/* Pokébola animada - Ajuste do tamanho */}
+        <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 mb-6 sm:mb-8 group">
           <div className="absolute inset-0 bg-[#306230] rounded-full border-4 border-[#0f380f]
                          group-hover:scale-110 transition-transform duration-500">
-            <div className="absolute inset-x-0 top-1/2 h-4 bg-[#0f380f]" />
-            <div className="absolute left-1/2 top-1/2 w-8 sm:w-12 h-8 sm:h-12 -translate-x-1/2 -translate-y-1/2
-                           bg-[#98cb98] rounded-full border-4 border-[#0f380f]
-                           group-hover:animate-pulse" />
+            <div className="absolute inset-x-0 top-1/2 h-3 sm:h-4 bg-[#0f380f]" />
+            <div className="absolute left-1/2 top-1/2 w-6 sm:w-8 md:w-10 lg:w-12 h-6 sm:h-8 md:h-10 lg:h-12 
+                            -translate-x-1/2 -translate-y-1/2 bg-[#98cb98] rounded-full border-4 border-[#0f380f]
+                            group-hover:animate-pulse" />
           </div>
         </div>
 
