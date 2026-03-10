@@ -1,35 +1,32 @@
+pokedex/README.md
 <div align="center">
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:306230,100:98cb98&height=200&section=header&text=POKEDEX&fontSize=50&fontColor=fff&animation=twinkling&fontAlignY=40&desc=Next.js%20|%20React%20|%20TailwindCSS%20|%20PokeAPI&descAlignY=60&descSize=18">
 
 <p align="center">
-  <i>🚀 A modern Game Boy-inspired Pokédex built with Next.js and TailwindCSS to explore and learn about Pokémon.</i>
-</p>
-
-<p align="center">
-  <i>🚀 Uma Pokédex moderna inspirada no Game Boy construída com Next.js e TailwindCSS para explorar e aprender sobre Pokémon.</i>
+  <i>A modern Game Boy-inspired Pokédex built with Next.js and TailwindCSS to explore and learn about Pokémon.</i>
 </p>
 
 ---
 
-### 🌟 Features | Funcionalidades
+### Features
 
 <div align="center">
 
-|  Feature  | Description | Descrição |
-|:---------:|:------------|:----------|
-| 🌎 | Available in English and Portuguese | Disponível em Inglês e Português |
-| 📱 | Fully responsive across all devices | Totalmente responsivo em todos dispositivos |
-| ⚡ | Game Boy inspired animations | Animações inspiradas no Game Boy |
-| 🔍 | Smart search and type filtering | Busca inteligente e filtro por tipos |
-| 🎮 | Interactive "Who's that Pokémon?" quiz | Quiz interativo "Quem é esse Pokémon?" |
-| ✨ | Support for shiny versions | Suporte para versões shiny |
-| 📊 | Detailed stats comparison | Comparação detalhada de estatísticas |
-| 🔄 | Evolution chain visualization | Visualização da cadeia evolutiva |
+|  Feature  | Description |
+|:---------:|:------------|
+| Available in English and Portuguese | The app supports both English and Portuguese languages |
+| Fully responsive across all devices | Works seamlessly on all device sizes |
+| Game Boy inspired animations | Animations inspired by the classic Game Boy |
+| Smart search and type filtering | Intelligent search and filtering by Pokémon type |
+| Interactive "Who's that Pokémon?" quiz | Fun quiz to guess the Pokémon |
+| Support for shiny versions | Includes shiny Pokémon variants |
+| Detailed stats comparison | Compare Pokémon stats in detail |
+| Evolution chain visualization | Visualizes Pokémon evolution chains |
 
 </div>
 
-### 📦 Dependencies | Dependências
+### Dependencies
 
 ```next: 14.0.0
 react: 18.2.0
@@ -41,48 +38,47 @@ eslint: 8.52.0
 eslint-config-next: 14.0.0
 ```
 
-### 🚀 Getting Started | Começando
+### Getting Started
 
 ```bash
-# Clone the repository | Clone o repositório
+# Clone the repository
 git clone https://github.com/matheussricardoo/pokedex.git
 
-# Install dependencies | Instale as dependências
+# Install dependencies
 npm install
 
-# Start development server | Inicie o servidor de desenvolvimento
+# Start development server
 npm run dev
 ```
 
-
-### 📁 Project Structure | Estrutura do Projeto
-
-<div align="center">
-
-| Directory | Purpose | Propósito |
-|:---------:|:--------|:----------|
-| `/src/app/components` | UI Components (Cards, Modal, Quiz) | Componentes UI (Cards, Modal, Quiz) |
-| `/src/app/contexts` | React context providers | Provedores de contexto React |
-| `/src/app/fonts` | Local fonts | Fontes locais |
-| `/src/app/i18n` | Language files and translations | Arquivos de idioma e traduções |
-| `/src/components/features` | Feature components | Componentes de funcionalidades |
-| `/public` | Static assets and icons | Recursos estáticos e ícones |
-
-</div>
-
-### 🎨 Color Palette | Paleta de Cores
+### Project Structure
 
 <div align="center">
 
-| Color | Hex | Usage | Uso |
-|:-----:|:---:|:------|:----|
-| Primary | #306230 | Main background and elements | Fundo principal e elementos |
-| Secondary | #98cb98 | Interactive elements | Elementos interativos |
-| Details | #0f380f | Borders and text | Bordas e texto |
+| Directory | Purpose |
+|:---------:|:--------|
+| `/src/app/components` | UI Components (Cards, Modal, Quiz) |
+| `/src/app/contexts` | React context providers |
+| `/src/app/fonts` | Local fonts |
+| `/src/app/i18n` | Language files and translations |
+| `/src/components/features` | Feature components |
+| `/public` | Static assets and icons |
 
 </div>
 
-### 👤 Author | Autor
+### Color Palette
+
+<div align="center">
+
+| Color | Hex | Usage |
+|:-----:|:---:|:------|
+| Primary | #306230 | Main background and elements |
+| Secondary | #98cb98 | Interactive elements |
+| Details | #0f380f | Borders and text |
+
+</div>
+
+### Author
 
 <div align="center">
   <a href="https://github.com/matheussricardoo" target="_blank">
@@ -93,11 +89,9 @@ npm run dev
   </a>
 </div>
 
-### 📄 License | Licença
+### License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE](LICENSE) para obter detalhes.
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:306230,100:98cb98&height=120&section=footer"/>
 
